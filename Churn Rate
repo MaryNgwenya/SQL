@@ -1,4 +1,6 @@
 //SAMPLE CODE, FOR CALCULATING CHURN RATE
+//A churn rate is the percent of subscribers to a monthly service who have canceled.
+
 
 SELECT COUNT(DISTINCT user_id) AS 'enrollments',
   COUNT(CASE
