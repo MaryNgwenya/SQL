@@ -7,7 +7,7 @@ CREATE TABLE friends (
 );
 
 INSERT INTO friends (id, name, birthday)
-VALUES (1, 'Ororo Munroe', '1940-05-30');
+VALUES (1, 'Sally Luo', '1957-03-03');
 
 SELECT *
 FROM friends;
