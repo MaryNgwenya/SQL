@@ -1,0 +1,52 @@
+//SAMPLE CODE OF RESTAURANT REVIEW DATABASE CALLED YUMTIME
+
+SELECT *
+FROM YUMTIME;
+
+SELECT DISTINCT neighborhood
+FROM YUMTIME;
+
+SELECT DISTINCT cuisine
+FROM YUMTIME;
+
+SELECT *
+FROM YUMTIME
+WHERE cuisine = 'Chinese';
+
+SELECT *
+FROM YUMTIME
+WHERE review >= 4;
+
+SELECT *
+FROM YUMTIME
+WHERE cuisine = 'Fast Food'
+  AND price = '%$%';
+
+SELECT *
+FROM YUMTIME
+WHERE name LIKE '%rice%';
+
+SELECT *
+FROM YUMTIME
+WHERE neighborhood = 'Jacksonville'
+  OR neighborhood = 'Downtown'
+  OR neighborhood = 'Northside';
+
+SELECT *
+FROM YUMTIME
+WHERE health IS NULL;
+
+SELECT *
+FROM YUMTIME 
+ORDER BY review DESC
+LIMIT 20;
+
+SELECT name, 
+  CASE 
+    WHEN review > 4.5 THEN 'Excellent'
+    WHEN review > 4 THEN 'Great'
+    WHEN review > 3 THEN 'Good'
+    WHEN review > 2 THEN 'Fair'
+    ELSE 'Poor'
+  END AS 'Review'
+FROM YUMTIME; 
