@@ -1,0 +1,20 @@
+//Designed and normalized a database for managing hospital operations, including patient records, appointments, and billing.
+
+//Synthetic data generated for the project.
+
+CREATE TABLE Patients (
+    PatientID INT PRIMARY KEY,
+    Name VARCHAR(100),
+    DOB DATE,
+    Gender CHAR(1)
+);
+
+CREATE TABLE Appointments (
+    AppointmentID INT PRIMARY KEY,
+    PatientID INT,
+    DoctorID INT,
+    AppointmentDate DATE,
+    FOREIGN KEY (PatientID) REFERENCES Patients(PatientID)
+);
+
+//Results: Successfully created a normalized database structure that supports efficient data retrieval and management.
