@@ -18,3 +18,50 @@ CREATE TABLE Appointments (
 );
 
 //Results: Successfully created a normalized database structure that supports efficient data retrieval and management.
+
+//Same project, same data
+//More code to show other skills.
+
+//-- Create Patients table
+CREATE TABLE Patients (
+    PatientID INT PRIMARY KEY,
+    Name VARCHAR(100),
+    DOB DATE,
+    Gender CHAR(1)
+);
+
+//-- Create Doctors table
+CREATE TABLE Doctors (
+    DoctorID INT PRIMARY KEY,
+    Name VARCHAR(100),
+    Specialty VARCHAR(100)
+);
+
+//-- Create Appointments table
+CREATE TABLE Appointments (
+    AppointmentID INT PRIMARY KEY,
+    PatientID INT,
+    DoctorID INT,
+    AppointmentDate DATE,
+    FOREIGN KEY (PatientID) REFERENCES Patients(PatientID),
+    FOREIGN KEY (DoctorID) REFERENCES Doctors(DoctorID)
+);
+
+//-- Insert sample data
+INSERT INTO Patients (PatientID, Name, DOB, Gender) VALUES
+(1, 'John Doe', '1980-01-01', 'M'),
+(2, 'Jane Smith', '1990-02-02', 'F');
+
+INSERT INTO Doctors (DoctorID, Name, Specialty) VALUES
+(1, 'Dr. Brown', 'Cardiology'),
+(2, 'Dr. Green', 'Neurology');
+
+INSERT INTO Appointments (AppointmentID, PatientID, DoctorID, AppointmentDate) VALUES
+(1, 1, 1, '2023-09-01'),
+(2, 2, 2, '2023-09-02');
+
+//-- Query to retrieve all appointments
+SELECT a.AppointmentID, p.Name AS PatientName, d.Name AS DoctorName, a.AppointmentDate
+FROM Appointments a
+JOIN Patients p ON a.PatientID = p.PatientID
+JOIN Doctors d ON a.DoctorID = d.DoctorID;
