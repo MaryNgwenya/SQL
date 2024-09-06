@@ -1,0 +1,9 @@
+//This project analyzes carbon emissions data from various industries to identify trends and insights.
+//Kaggle Carbon Emissions Dataset
+
+SELECT industry, SUM(emissions) AS total_emissions
+FROM carbon_emissions
+GROUP BY industry
+ORDER BY total_emissions DESC;
+
+//Results: The analysis revealed that the manufacturing industry has the highest carbon emissions, followed by transportation.
