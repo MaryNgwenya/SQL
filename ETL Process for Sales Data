@@ -1,0 +1,15 @@
+//Description: Developed an ETL pipeline to extract sales data from multiple sources, transform it, and load it into a data warehouse.
+//Data Source: Sales data from CSV files and an online API.
+
+//-- Extract
+COPY sales_data FROM 's3://bucket/sales.csv' CSV;
+
+//-- Transform
+UPDATE sales_data
+SET total_price = quantity * unit_price;
+
+//-- Load
+INSERT INTO data_warehouse.sales (SELECT * FROM sales_data);
+
+
+//Results: The ETL process streamlined data integration and improved data accuracy.
