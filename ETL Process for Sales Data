@@ -13,3 +13,22 @@ INSERT INTO data_warehouse.sales (SELECT * FROM sales_data);
 
 
 //Results: The ETL process streamlined data integration and improved data accuracy.
+
+
+//Same project, same data
+//More code to show other skills.
+
+//-- Extract data from CSV
+COPY sales_data FROM 's3://bucket/sales.csv' CSV HEADER;
+
+//-- Transform data
+UPDATE sales_data
+SET total_price = quantity * unit_price;
+
+//-- Load data into data warehouse
+INSERT INTO data_warehouse.sales (sale_id, product_id, quantity, unit_price, total_price)
+SELECT sale_id, product_id, quantity, unit_price, total_price
+FROM sales_data;
+
+//-- Query to verify data in data warehouse
+SELECT * FROM data_warehouse.sales;
