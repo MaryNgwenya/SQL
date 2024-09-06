@@ -7,3 +7,35 @@ GROUP BY industry
 ORDER BY total_emissions DESC;
 
 //Results: The analysis revealed that the manufacturing industry has the highest carbon emissions, followed by transportation.
+
+
+//Same project, same data
+//More code to show other skills.
+
+//-- Create the table
+CREATE TABLE CarbonEmissions (
+    Industry VARCHAR(100),
+    Year INT,
+    Emissions FLOAT
+);
+
+//-- Insert sample data
+INSERT INTO CarbonEmissions (Industry, Year, Emissions) VALUES
+('Manufacturing', 2020, 500.5),
+('Transportation', 2020, 300.2),
+('Energy', 2020, 450.1),
+('Manufacturing', 2021, 520.3),
+('Transportation', 2021, 310.4),
+('Energy', 2021, 460.7);
+
+//-- Query to analyze total emissions by industry
+SELECT Industry, SUM(Emissions) AS TotalEmissions
+FROM CarbonEmissions
+GROUP BY Industry
+ORDER BY TotalEmissions DESC;
+
+//-- Query to analyze emissions trend over years
+SELECT Year, Industry, Emissions
+FROM CarbonEmissions
+ORDER BY Year, Industry;
+
